@@ -9,16 +9,15 @@ Print ARGUMENT(s) according to FORMAT, or execute according to OPTION:
 
 We use the function printf() with % followed by the type of format to show the value of the variable.
 
-.B %i
-got replaced by value an integer variable,
-.B %d
-got replaced by value an integer variable decimal base 10,
-.B %c
-got replaced by value of a character variable,
-.B %f
-got replaced by value of a float variable,
-.B %s
-got replaced by value of a string variable. 
+%i - got replaced by value an integer variable,
+
+%d - got replaced by value an integer variable decimal base 10,
+
+%c - got replaced by value of a character variable,
+
+%f - got replaced by value of a float variable,
+
+%s - got replaced by value of a string variable. 
 
 .SH SEE ALSO
 .I printf(3).
