@@ -3,6 +3,11 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdarg.h>
+/**
+ * print_char - this function prints char
+ * @c: char that going to be print
+ * Return: int
+ */
 int print_char(char c)
 {
 	/**
@@ -48,14 +53,12 @@ int print_string(char *string)
  */
 int _printf(const char *format, ...)
 {
-	char *str;
-	char c;
-	int i = 0;
-	int count = 0;
+	char *str, c;
+	int i, count;
 	va_list list;
 
 	va_start(list, format);
-	while (format[i] != '\0')
+	for (i = 0, count = 0; format[i] != '\0'; i++)
 	{
 		if (!format)
 			return (-1);
@@ -68,8 +71,7 @@ int _printf(const char *format, ...)
 					if (str == NULL)
 						str = "(null)";
 					count += print_string(str);
-					count--;
-					i++;
+					i++, count--;
 					break;
 				case 'c':
 					c = (char) va_arg(list, int);
@@ -83,16 +85,10 @@ int _printf(const char *format, ...)
 				case '\0':
 					count = -2;
 					break;
-				default:
-					print_char('%');
-					break;
 			}
 		}
 		else
-		{
 			print_char((char) format[i]);
-		}
-		i++;
 		count++;
 	}
 	va_end(list);
