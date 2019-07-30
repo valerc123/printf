@@ -1,5 +1,5 @@
 .TH man 1 "29 July 2019" "0.32" "holberton man page"
-.SH NAME
+.Sa NAME
 .B _printf
 - prints data according to a format.
 .SH SYNOPSIS
