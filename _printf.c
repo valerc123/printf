@@ -3,22 +3,6 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdarg.h>
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-		return (write(1, &c, 1));
-}
-/**
- * print_char - this function prints char
- * @c: char that going to be print
- * Return: int
- */
 int print_char(char c)
 {
 	/**
@@ -96,6 +80,9 @@ int _printf(const char *format, ...)
 					print_char('%');
 					i++;
 					break;
+				case '\0':
+					count = -2;
+					break;
 				default:
 					print_char('%');
 					break;
@@ -106,8 +93,8 @@ int _printf(const char *format, ...)
 			print_char((char) format[i]);
 		}
 		i++;
+		count++;
 	}
 	va_end(list);
-	count++;
 	return (count);
 }
