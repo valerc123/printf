@@ -7,7 +7,8 @@ _printf FORMAT [ARGUMENT]...
 .SH DESCRIPTION
 Print ARGUMENT(s) according to FORMAT, or execute according to OPTION:
 
-We use the function printf() with % followed by the type of format to show the value of the variable.
+We use the function printf() with % followed by the type of format specifier, to show the value of the variable.
+Format specifier is used during input and output. It is a way to tell the compiler what type of data is in a variable during taking input using _printf(). Some examples are %c, %d, %i, etc.
 
 %i - got replaced by value an integer variable,
 
@@ -15,9 +16,9 @@ We use the function printf() with % followed by the type of format to show the v
 
 %c - got replaced by value of a character variable,
 
-%f - got replaced by value of a float variable,
+%s - got replaced by value of a string variable,
 
-%s - got replaced by value of a string variable. 
+%% - got replaced by a single '%'.
 
 .SH SEE ALSO
 .I printf(3).
