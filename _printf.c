@@ -51,10 +51,11 @@ int print_string(char *string)
 		* Print the string to stdout(1)
 		* and return the number of bytes printed
 		*/
-		return (write(1, string, length));
+		write(1, string, length);
+		return (length);
 	}
 /*If the string is NULL dont print nothing and return 0*/
-return (0);
+	return (0);
 }
 /**
  * _printf - This function prints data according to a format
@@ -66,6 +67,7 @@ int _printf(const char *format, ...)
 	char *str;
 	char c;
 	int i = 0;
+	int count = 0;
 	va_list list;
 
 	va_start(list, format);
@@ -81,25 +83,31 @@ int _printf(const char *format, ...)
 					str = va_arg(list, char *);
 					if (str == NULL)
 						str = "(null)";
-					print_string(str);
-					i += 2;
+					count += print_string(str);
+					count--;
+					i++;
 					break;
 				case 'c':
 					c = (char) va_arg(list, int);
 					print_char(c);
-					i += 2;
+					i++;
 					break;
 				case '%':
 					print_char('%');
-					i += 2;
+					i++;
 					break;
 				default:
-					return (-1);
+					print_char('%');
+					break;
 			}
 		}
-		print_char(format[i]);
+		else
+		{
+			print_char((char) format[i]);
+		}
 		i++;
 	}
 	va_end(list);
-	return (i);
+	count++;
+	return (count);
 }
