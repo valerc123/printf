@@ -4,6 +4,17 @@
 #include <stdlib.h>
 #include <stdarg.h>
 /**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+		return (write(1, &c, 1));
+}
+/**
  * print_char - this function prints char
  * @c: char that going to be print
  * Return: int
@@ -60,12 +71,16 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	while (format[i] != '\0')
 	{
+		if (!format)
+			return (-1);
 		if (format[i] == '%')
 		{
 			switch (format[i + 1])
 			{
 				case 's':
 					str = va_arg(list, char *);
+					if (str == NULL)
+						str = "(null)";
 					print_string(str);
 					i += 2;
 					break;
@@ -78,6 +93,8 @@ int _printf(const char *format, ...)
 					print_char('%');
 					i += 2;
 					break;
+				default:
+					return (-1);
 			}
 		}
 		print_char(format[i]);
