@@ -79,6 +79,6 @@ int print_rev_string(va_list parameters)
 		return (length);
 	}
 
-	/*If the string is NULL dont print nothing and return 0*/
+	/*If the string is NULL print (null) and return 6*/
 	return (write(1, "(null)", 6));
 }

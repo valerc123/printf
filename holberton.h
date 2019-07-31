@@ -16,6 +16,8 @@ int get_divider(int digits);
 int (*get_print_func(const char c))(va_list ap);
 void rev_string(char *s, char *output);
 int print_rev_string(va_list parameters);
+void rot13(char *s, char *response);
+int print_rot13_string(va_list parameters);
 
 /**
  * struct format - Structure that saves the print function for each identifier.
