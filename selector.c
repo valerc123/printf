@@ -18,13 +18,14 @@ int (*get_print_func(const char c))(va_list parameters)
 		{'c', print_char},
 		{'s', print_string},
 		{'d', print_integer},
-		{'i', print_integer}
+		{'i', print_integer},
+		{'r', print_rev_string}
 	};
 	/*
 	 * Check into the array to find the correct struct
 	 * or until the end of the array-
 	 */
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 5; i++)
 	{
 		if (c == formats[i].type)
 		{

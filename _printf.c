@@ -62,5 +62,5 @@ int _printf(const char *format, ...)
 
 int is_valid(char c)
 {
-	return (c == 'c' || c == 's' || c == 'd' || c == 'i');
+	return (c == 'c' || c == 's' || c == 'd' || c == 'i' || c == 'r');
 }
