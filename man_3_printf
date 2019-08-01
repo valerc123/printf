@@ -1,9 +1,12 @@
-.TH man 1 "29 July 2019" "0.32" "holberton man page"
+.TH man 1 "29 July 2019" "0.32" "_printf() man page"
 .Sa NAME
 .B _printf
 - prints data according to a format.
 .SH SYNOPSIS
 _printf FORMAT [ARGUMENT]...
+.SH PROTOTYPE
+int _printf(const char* format, ...);
+
 .SH DESCRIPTION
 Print ARGUMENT(s) according to FORMAT, or execute according to OPTION:
 
@@ -20,6 +23,8 @@ Format specifier is used during input and output. It is a way to tell the compil
 
 %% - got replaced by a single '%'.
 
+.SH RETURN VALUE
+Upon successful return, This function return the number of characters written, excluding the terminating null character used to end the string.
 .SH SEE ALSO
 .I printf(3).
 .SH BUGS
