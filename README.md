@@ -1,33 +1,90 @@
-# _printf();
-_printf - prints data according to a format.
+# Function _printf() in C
+This function sends formatted output to stdout.
+```bash
+int _printf(const char* format, ...);
+```
+to use the _printf() function make sure you have included it first in the header.
+## Usage
 
-SYNOPSIS
-       _printf FORMAT [ARGUMENT]...
+**format** − This is the string that contains the text to be written to stdout. It can optionally contain embedded format tags that are replaced by the values specified in subsequent additional arguments and formatted as requested. Format tags prototype is %[flags]
 
-DESCRIPTION
-       Print ARGUMENT(s) according to FORMAT, or execute according to OPTION:
+## Format specifier
+| Plugin | README |
+| ------ | ------ |
+|%i| got replaced by value an integer variable |
+|%d|got replaced by value an integer variable decimal base 10 |
+|%c| got replaced by value of a character variable |
+|%s|  got replaced by value of a pointer char variable|
+|%%|  got replaced by a single percent '%'. |
 
-       We  use the function printf() with % followed by the type of format speci‐
-       fier, to show the value of the variable.  Format specifier is used  during
-       input and output. It is a way to tell the compiler what type of data is in
-       a variable during taking input using _printf(). Some examples are %c,  %d,
-       %i, etc.
 
-       %i - got replaced by value an integer variable,
+ %i - Example:
+```python
+int age = 10; 
 
-       %d - got replaced by value an integer variable decimal base 10,
+printf("She is %i years old.", age);
+```
 
-       %c - got replaced by value of a character variable,
+>output:
+```python
+she is 10 year old.
+```
+ %d - Example:
+```python
+int average = 1500;
 
-       %s - got replaced by value of a string variable,
+ _printf("The average is: %d.", average);
+```
+>output:
+```python
+The average is: 1500.
+```
 
-       %% - got replaced by a single '%'.
+   %c - Example:
+```python
+char answer = 'a'; 
 
-SEE ALSO
-       printf(3).
+_printf("The right answer is: %c.", answer);
+```
+>output:
+```python
+The right answer is: a.
+```
 
-BUGS
-       No known bugs.
+   %s - Example:
+```python
+char *name = "Valentina";
+char *lastname = "Rua";
 
-AUTHOR
-       Valentina Rúa Carrillo, Nicolas Forero Puello.
+_printf("My name is %s %s.", name, lastname);
+```
+>output:
+```python
+My name is Valentina Rua.
+```
+
+   %% - Example:
+```python
+int percent = 100;
+
+_printf("The profits were %i%%.", percent);
+```
+>output:
+```python
+The profits were 100%.
+```
+
+## Return Value
+Upon successful return, the function returns the number of bytes used, which corresponds to the number of characters written.
+Example:
+```python
+int bytes;
+char *saludo = "hello world"; /* length is set to 12 */
+bytes = _printf("%s.\n", saludo);
+_printf("saludo tiene %i bytes.", bytes);
+```
+>output:
+```python
+hello world.
+saludo tiene 12 bytes.
+```
